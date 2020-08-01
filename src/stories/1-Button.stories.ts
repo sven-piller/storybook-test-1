@@ -8,8 +8,10 @@ export default {
   component: Button,
   parameters: {
     backgrounds: [
-      { name: 'twitter', value: '#00aced', default: true },
-      { name: 'facebook', value: '#3b5998' },
+      { name: 'original', value: '#26c6da', default: true },
+      { name: 'red', value: '#ff0000' },
+      { name: 'black', value: '#000000' },
+      { name: 'white', value: '#ffffff' },
     ]
   },
 };
