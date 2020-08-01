@@ -6,6 +6,12 @@ import { Button } from '@storybook/angular/demo';
 export default {
   title: 'Button',
   component: Button,
+  parameters: {
+    backgrounds: [
+      { name: 'twitter', value: '#00aced', default: true },
+      { name: 'facebook', value: '#3b5998' },
+    ]
+  },
 };
 
 export const Text = () => ({
