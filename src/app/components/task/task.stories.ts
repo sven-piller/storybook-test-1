@@ -5,14 +5,6 @@ import { TaskComponent } from './task.component';
 export default {
   title: 'Task',
   excludeStories: /.*Data$/,
-  parameters: {
-    backgrounds: [
-      { name: 'original', value: '#26c6da', default: true },
-      { name: 'red', value: '#ff0000' },
-      { name: 'black', value: '#000000' },
-      { name: 'white', value: '#ffffff' },
-    ]
-  },
 };
 
 export const actionsData = {
