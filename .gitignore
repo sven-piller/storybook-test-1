@@ -44,3 +44,4 @@ Thumbs.db
 
 # Custom
 .angulardoc.json
+output/

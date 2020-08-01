@@ -13,7 +13,8 @@
     "jest": "jest --watch",
     "e2e": "ng e2e",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +32,7 @@
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
+    "@angular-builders/jest": "*",
     "@angular-devkit/build-angular": "~0.1000.5",
     "@angular/cli": "~10.0.5",
     "@angular/compiler-cli": "~10.0.7",
@@ -58,12 +60,8 @@
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.2",
     "jest": "^26.2.2",
+    "jest-junit": "^11.1.0",
     "jest-preset-angular": "^8.2.1",
-    "karma": "~5.1.1",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~3.0.3",
-    "karma-jasmine": "~3.3.1",
-    "karma-jasmine-html-reporter": "^1.5.4",
     "protractor": "~7.0.0",
     "sass-loader": "^9.0.2",
     "style-loader": "^1.2.1",
@@ -115,5 +113,15 @@
       "node",
       ".html"
     ]
+  },
+  "jest-junit": {
+    "suiteName": "jest tests",
+    "outputDirectory": "output",
+    "outputName": "junit.xml",
+    "uniqueOutputName": "false",
+    "classNameTemplate": "{classname}-{title}",
+    "titleTemplate": "{classname}-{title}",
+    "ancestorSeparator": " › ",
+    "usePathForSuiteName": "true"
   }
 }
