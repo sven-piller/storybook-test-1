@@ -37,7 +37,7 @@ export class TaskComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onPin(id: any) {
     this.onPinTask.emit(id);

@@ -1,6 +1,6 @@
 
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Task } from './../../models/task.model'; 
+import { Task } from './../../models/task.model';
 
 @Component({
   selector: 'app-task-list',
@@ -27,7 +27,7 @@ export class TaskListComponent implements OnInit {
   // tslint:disable-next-line: no-output-on-prefix
   @Output() onArchiveTask: EventEmitter<any> = new EventEmitter();
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }
