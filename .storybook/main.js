@@ -5,6 +5,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-notes',
     '@storybook/addon-backgrounds/register',
-    '@storybook/preset-typescript'
+    '@storybook/preset-typescript',
+    '@storybook/preset-scss'
   ],
 };
