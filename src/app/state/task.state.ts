@@ -5,7 +5,8 @@ import { Task } from '../models/task.model';
 
 export const actions = {
   ARCHIVE_TASK: 'ARCHIVE_TASK',
-  PIN_TASK: 'PIN_TASK'
+  PIN_TASK: 'PIN_TASK',
+  ERROR: 'APP_ERROR',
 };
 
 export class ArchiveTask {
@@ -20,6 +21,11 @@ export class PinTask {
   constructor(public payload: string) { }
 }
 
+export class AppError {
+  static readonly type = actions.ERROR;
+  constructor(public payload: boolean) {}
+}
+
 // The initial state of our store when the app loads.
 // Usually you would fetch this from a server
 const defaultTasks = {
@@ -31,6 +37,7 @@ const defaultTasks = {
 
 export class TaskStateModel {
   entities: { [id: number]: Task };
+  error: boolean;
 }
 
 // sets the default state
@@ -38,6 +45,7 @@ export class TaskStateModel {
   name: 'tasks',
   defaults: {
     entities: defaultTasks,
+    error: false,
   },
 })
 
@@ -46,6 +54,12 @@ export class TasksState {
   static getAllTasks(state: TaskStateModel) {
     const entities = state.entities;
     return Object.keys(entities).map(id => entities[+id]);
+  }
+
+  @Selector()
+  static getError(state: TaskStateModel) {
+    const { error } = state;
+    return error;
   }
 
   // triggers the PinTask action, similar to redux
@@ -75,6 +89,15 @@ export class TasksState {
 
     patchState({
       entities,
+    });
+  }
+  
+  // function to handle how the state should be updated when the action is triggered
+  @Action(AppError)
+  setAppError({ patchState, getState }: StateContext<TaskStateModel>, { payload }: AppError) {
+    const state = getState();
+    patchState({
+      error: !state.error,
     });
   }
 }
